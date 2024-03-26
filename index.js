@@ -9,7 +9,9 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());
 // using cors
-app.use(cors())
+app.use(cors({
+  origin:"*"
+}))
 
 
 // calling the routes file
