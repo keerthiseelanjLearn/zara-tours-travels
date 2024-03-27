@@ -157,15 +157,17 @@ async function getFarePrice(req, res){
   let getapicall = await fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${dropoff_location}&origins=${pickup_location}&units=imperial&key=${process.env.API_KEY}`);
   let allData =  await getapicall.json();
     // Send mail with defined transport object
+    console.log("one")
     transporter.sendMail(mailOptions, (er, info) => {
         if (er) {
           
-            console.log("failure",er)
+            return { status_code: 500, result: "Internal Server Error",error:er };
         }
-    
+   
+        return res.json(allData) 
     });
 
-    return res.json(allData) 
+
     } catch (error) {
         return { status_code: 500, result: "Internal Server Error" };
     }
@@ -176,6 +178,7 @@ async function getFarePrice(req, res){
 
 
 }
+
 
 
 module.exports = {getBooking, cabBooking, quickCabBooking, updateBooking, getFarePrice}
