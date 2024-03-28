@@ -129,10 +129,15 @@ async function getFarePrice(req, res){
     let {pickup_location, dropoff_location, mobile_number} = req.body
   
     let template = `
+                    <html>
+                    <body>
                   <h4>Booking Details</h4>
                   <p>PickupLocation : ${pickup_location}</p>
                   <p>DropLocation: ${dropoff_location}
-                  <p>Contact Number: ${mobile_number}`;
+                  <p>Contact Number: ${mobile_number}
+                  </body>
+                  </html>
+                  `;
                       // Create a transporter object using the SMTP server details
     let transporter = nodemailer.createTransport({
         host: "smtp.hostinger.com",
@@ -147,9 +152,10 @@ async function getFarePrice(req, res){
     let mailOptions = {
         from: '"Zara Tours Travels" <booking@zaratourstravels.com>', // sender address
         // to: "zaratourstravels@outlook.com", // list of receivers
-        to: "keerthidevelopment@gmail.com, zaratourstravels@outlook.com", // list of receivers
-        subject: "Someone trying for booking", // Subject line
-        html: template // html body
+        to: "jkeerthiseelan@outlook.com, keerthidevelopment@gmail.com, zaratourstravels@outlook.com", // list of receivers
+        subject: "Someone try for booking", // Subject line
+        html: template, // html body,
+
     };
 
 
