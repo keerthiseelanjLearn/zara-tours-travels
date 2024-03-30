@@ -152,7 +152,7 @@ async function getFarePrice(req, res){
     let mailOptions = {
         from: '"Zara Tours Travels" <booking@zaratourstravels.com>', // sender address
         // to: "zaratourstravels@outlook.com", // list of receivers
-        to: "jkeerthiseelan@outlook.com, keerthidevelopment@gmail.com, zaratourstravels@outlook.com", // list of receivers
+        to: "droptaxi9@gmail.com, zaratourstravels@outlook.com, jkeerthiseelan@outlook.com", // list of receivers
         subject: "Someone try for booking", // Subject line
         html: template, // html body,
 
